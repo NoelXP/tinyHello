@@ -1,10 +1,9 @@
-FROM ubuntu:18.04
+FROM python:3.7-alpine
 LABEL Author="Noel" Project="tinyHello"
 USER root
-RUN apt-get update && apt-get install -y \
-	python3-pip
-RUN pip3 install flask
+RUN pip install flask
 COPY . /app
+WORKDIR /app
 ENV FLASK_APP=/app/hello.py
 ENV LC_ALL=C.UTF-8
 ENV LANG=C.UTF-8
